@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+        <div>コンピュータの出した手は？「<span id="pc_hands"></span>」</div>
+        <div id="judgment"></div>
+    </main>
+
+    <footer></footer>
+    <script>
+        $("#gu_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+
+            let view1 = "";
+            let view2 = "";
+            if(r==1){
+                view1 = "グー";
+                view2 = "あいこ";
+            }
+            if(r==2){
+                view1 = "チョキ";
+                view2 = "勝ち";
+            }
+            if(r==3){
+                view1 = "パー";
+                view2 = "負け";
+            }
+
+            $("#pc_hands").html(view1);
+            $("#judgment").html(view2);
+        });
+
+        $("#cho_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+
+            let view1 = "";
+            let view2 = "";
+            if(r==1){
+                view1 = "グー";
+                view2 = "負け";
+            }
+            if(r==2){
+                view1 = "チョキ";
+                view2 = "あいこ";
+            }
+            if(r==3){
+                view1 = "パー";
+                view2 = "勝ち";
+            }
+
+            $("#pc_hands").html(view1);
+            $("#judgment").html(view2);
+        });
+
+        $("#par_btn").on("click",function(){
+            const r = Math.ceil(Math.random()*3);
+
+            let view1 = "";
+            let view2 = "";
+            if(r==1){
+                view1 = "グー";
+                view2 = "勝ち";
+            }
+            if(r==2){
+                view1 = "チョキ";
+                view2 = "負け";
+            }
+            if(r==3){
+                view1 = "パー";
+                view2 = "あいこ";
+            }
+
+            $("#pc_hands").html(view1);
+            $("#judgment").html(view2);
+        });
+
+    </script>
+</body>
+
+</html>
