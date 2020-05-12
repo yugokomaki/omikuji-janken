@@ -38,12 +38,15 @@
           <div id="material1"></div>
           <div id="material2"></div>
           <div id="material3"></div>
+          
 
     <footer></footer>
 
     <script>
 
     $("#wa_btn").on("click",()=>{
+        $("select").val(0);
+
         // １、乱数を設定
         const r = Math.ceil(Math.random()*3);
 
@@ -83,21 +86,27 @@
 
         $("#menu1").html(menu);
         $("#menu2").html(img);
+        $("#material1").html('・'+data[0]['name']+data[0]['qty']+data[0]['unit']);
+        $("#material2").html('・'+data[1]['name']+data[1]['qty']+data[1]['unit']);
+        $("#material3").html('・'+data[2]['name']+data[2]['qty']+data[2]['unit']);
 
         // ３、人数を選ぶとイベント発生、メニューに応じて材料決定（数量は人数掛け）
         let select = document.querySelector('.number');
         let result = document.querySelector('.result');
         
         select.addEventListener('change',()=>{
-            result.innerHTML = select.value;
-            $("#material1").html('・'+data[0]['name']+data[0]['qty']+data[0]['unit']);
-            $("#material2").html('・'+data[1]['name']+data[1]['qty']+data[1]['unit']);
-            $("#material3").html('・'+data[2]['name']+data[2]['qty']+data[2]['unit']);
+            let result = select.value;
+            // result.innerHTML = select.value;
+            $("#material1").html('・'+data[0]['name']+data[0]['qty']*result+data[0]['unit']);
+            $("#material2").html('・'+data[1]['name']+data[1]['qty']*result+data[1]['unit']);
+            $("#material3").html('・'+data[2]['name']+data[2]['qty']*result+data[2]['unit']);
         });
         
     });
 
     $("#you_btn").on("click",()=>{
+        $("select").val(0);
+        
         // １、乱数を設定
         const r = Math.ceil(Math.random()*3);
 
@@ -137,23 +146,30 @@
 
         $("#menu1").html(menu);
         $("#menu2").html(img);
+        $("#material1").html('・'+data[0]['name']+data[0]['qty']+data[0]['unit']);
+        $("#material2").html('・'+data[1]['name']+data[1]['qty']+data[1]['unit']);
+        $("#material3").html('・'+data[2]['name']+data[2]['qty']+data[2]['unit']);
 
         // ３、人数を選ぶとイベント発生、メニューに応じて材料決定（数量は人数掛け）
         let select = document.querySelector('.number');
         let result = document.querySelector('.result');
         
         select.addEventListener('change',()=>{
-            result.innerHTML = select.value;
-            $("#material1").html('・'+data[0]['name']+data[0]['qty']+data[0]['unit']);
-            $("#material2").html('・'+data[1]['name']+data[1]['qty']+data[1]['unit']);
-            $("#material3").html('・'+data[2]['name']+data[2]['qty']+data[2]['unit']);
+            let result = select.value;
+            // result.innerHTML = select.value;
+            $("#material1").html('・'+data[0]['name']+data[0]['qty']*result+data[0]['unit']);
+            $("#material2").html('・'+data[1]['name']+data[1]['qty']*result+data[1]['unit']);
+            $("#material3").html('・'+data[2]['name']+data[2]['qty']*result+data[2]['unit']);
         });
         
     });
 
     // 質問
     // １、セレクトボックスで選んだ値を数量にかける方法
+
     // ２、和食と洋食の切り替え時に食材も切り替える方法
+    // ボタン押した時にデータを消す、表示非表示で対応
+    // toggle、要素を非表示
 
         
     </script>
